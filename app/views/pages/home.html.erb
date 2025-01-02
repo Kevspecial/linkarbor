@@ -1,0 +1,7 @@
+<h1>Welcome to LinkArbor</h1>
+<% if user_signed_in? %>
+  <%= link_to "Dashboard", links_path %>
+<% else %>
+  <%= link_to "Sign Up", new_user_registration_path %> |
+  <%= link_to "Log In", new_user_session_path %>
+<% end %>

@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get "links/index"
+  get "links/new"
+  get "links/create"
+  get "links/edit"
+  get "links/update"
+  # Defines the root path route ("/")
+  root "pages#home"
+
+
+  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -9,6 +19,9 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+
+  resources :links
+
+  # Dynamic route for user-specific Linktree pages
+  # get "/:username", to: "pages#linktree", as: :user_linktree
 end
